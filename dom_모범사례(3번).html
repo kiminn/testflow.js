@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <script>
+      //DOM플로우 1번
+      window.onload = function(){
+        const idDom = document.getElementById('display');
+        $idDom.style.color ="red"
+        $idDom.style.fontSize ="48px"
+      }
+    </script>
+    <style>
+      ol, ul   {list-style: none;}
+      a        {text-decoration: none; color: #000;}
+      a:hover  {color: #fff;}
+      .content {
+        width: 1024px;
+      }
+
+      .disp {
+        height: 200px;
+        border: 1px solid black;
+      }
+
+      .tab_host {
+        display: flex;
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      /* DOM플로우 2번 */
+      .tab_host li:hover {
+        cursor: pointer;
+        color: #fff;
+        background-color: goldenrod;
+      }
+
+      .tab_host li {
+        width: 200px;
+        border: 1px solid #ededed;
+      }
+
+      #list {
+        border: 1px solid #ededed;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <div class="disp" id="display">
+        <form>
+          <p>1.페이지가 로딩 될 때 이곳의 글씨를 변경하시오.</p>
+        </form>
+      </div>
+
+      <p>2.탭을 선택하면 선택한 탭의 배경과 글자의색이 바뀌도록 하시오</p>
+      <ul class="tab_host">
+        <li><a href="#tab1" class="tab">탭1</a></li>
+        <li><a href="#tab2" class="tab">탭2</a></li>
+        <li><a href="#tab3" class="tab">탭3</a></li>
+        <li><a href="#tab4" class="tab">탭4</a></li>
+        <li><a href="#tab5" class="tab">탭5</a></li>
+      </ul>
+
+      <p>
+        3. 위의 탭 클릭시 아래의 컨텐츠중 탭과 숫자가 같은 것만 보이게 하시오.
+      </p>
+      <ul class="tab_body">
+        <li id="tab1" class="block">탭1 컨텐츠</li>
+        <li id="tab3" class="block">탭3 컨텐츠</li>
+        <li id="tab2" class="block">탭2 컨텐츠</li>
+        <li id="tab5" class="block">탭5 컨텐츠</li>
+        <li id="tab4" class="block">탭4 컨텐츠</li>
+      </ul>
+    </div>
+    <script>
+      const $idDom = document.getElementById("display")
+      console.log($idDom)
+
+      const $tabLists = document.querySelectorAll('.tab')
+      
+      //DOM플로우 3번
+      const tabList = document.querySelectorAll('.tab_host li');
+      const contents = document.querySelectorAll('.tab_body .block')
+      let activeCont = ''; // 현재 활성화 된 컨텐츠 (기본:#tab1 활성화)
+
+      for(var i = 0; i < tabList.length; i++){
+        tabList[i].querySelector('.tab').addEventListener('click', function(e){
+          e.preventDefault();
+          for(var j = 0; j < tabList.length; j++){
+            // 나머지 버튼 클래스 제거
+            tabList[j].classList.remove('is_on');
+
+            // 나머지 컨텐츠 display:none 처리
+            contents[j].style.display = 'none';
+          }
+
+          // 버튼 관련 이벤트
+          this.parentNode.classList.add('is_on');
+
+          // 버튼 클릭시 컨텐츠 전환
+          activeCont = this.getAttribute('href');
+          document.querySelector(activeCont).style.display = 'block';
+        });
+      }
+
+    </script>
+  </body>
+</html>
