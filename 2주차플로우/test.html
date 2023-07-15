@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Title</title>
+    </head>
+    <body>
+        <p>
+            4. 아래의 입력창에 숫자가 입력되지 않도록 하고 길이 제한은 10자로 하시오. <br />숫자가 입력된다면 숫자가
+            입력되었다고 alert로 알려주시오
+        </p>
+        <!-- 여러 번 꾹 눌러야만 나오는 오류가있음. -->
+        <input
+            type="text"
+            id="te_input"
+            maxlength="10"
+            placeholder="글자만 입력하세요."
+            onInput="language()"
+            onkeypress="return checkNumber(event)"
+        />
+
+        <script>
+            // 4번문제
+            const $input = document.getElementById('te_input');
+            function language() {
+                const regexp = /[^ㄱ-ㅎ|ㅏ-ㅣ|가-힣|a-z|A-Z]/g; //숫자가 아닌 모든 문자를 찾아라
+                const inputValue = ($input.value = $input.value.replace(regexp, ''));
+            }
+            function checkNumber(event) {
+                if (event.key == true) {
+                    alert('문자를 입력하시오');
+                } else {
+                    language();
+                }
+            }
+        </script>
+    </body>
+</html>
