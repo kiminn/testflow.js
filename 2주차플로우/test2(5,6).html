@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Title</title>
+        <style>
+            .content {
+                width: 1024px;
+            }
+
+            .disp {
+                height: 200px;
+                border: 1px solid black;
+            }
+
+            .tab_host {
+                display: flex;
+                margin-top: 20px;
+                text-align: center;
+            }
+
+            .tab:hover {
+                cursor: pointer;
+            }
+
+            .tab {
+                width: 200px;
+                border: 1px solid #ededed;
+            }
+
+            #list {
+                border: 1px solid #f1f1f1;
+                background-color: #f1f1f1;
+            }
+
+            .mystyle {
+                text-decoration: line-through;
+                color: #73daca;
+            }
+
+            h1 {
+                color: #fff;
+                background-color: #73daca;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- form 안에 있으면 콘솔에 찍혔다가 사라짐 (???) -->
+        <!-- <form id="form"> -->
+        <!-- 5, 6번 문제 -->
+        <p>
+            5.아래의 입력창에 입력 후 저장 버튼을 누르거나 엔터키를 누르면 입력한 내용이 아래의 list에 추가 되도록
+            하시오. <br />초기화 버튼을 누르면 list안의 모든 내용이 지워져야 함
+        </p>
+        <h5>6.추가된 내용을 "각 각" 수정 및 삭제 수 있게 변경하시오.</h5>
+        <div>
+            <input type="text" value="" width="600" name="content" id="item-input" />
+            <button onclick="addItem()">저장</button>
+            <!-- <button type="reset">초기화</button> -->
+        </div>
+        <h1>&nbsp; To-do List 😁</h1>
+        <!-- id : 무조건 한 가지 속성에만 적용 -->
+        <ul id="list">
+            <!-- class : 여러 개 속성 있을 수 있음 -->
+            <!-- 각각 적용위해 id 추가해주기  -->
+            <!-- <li class="listItem" id="1st-item" onclick="handleSingleClick(this)">
+            11111
+          </li> 
+          <li class="listItem" id="2nd-item" onclick="handleSingleClick(this)">
+            222222
+          </li>
+          <li class="listItem" id="3rd-item" onclick="handleSingleClick(this)">
+            33333333
+          </li> -->
+        </ul>
+        <!-- </form> -->
+
+        <script src="test2.js"></script>
+    </body>
+</html>
