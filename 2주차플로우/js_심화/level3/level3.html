@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script defer type="module" src="./level3.js"></script>
+        <title>Document</title>
+        <style>
+            table {
+                border-collapse: collapse;
+                border: 1px solid #999;
+            }
+
+            table th,
+            td {
+                text-align: center;
+                border: 1px solid #999;
+            }
+
+            table .thead > th {
+                width: 150px;
+                padding: 16px;
+            }
+        </style>
+    </head>
+    <body>
+        <form id="ingredient-form">
+            <p>재료명: <input name="ingredient" id="input-name" placeholder="재료를 입력하세요." /></p>
+            <p>용량: <input name="weight" id="input-weight" placeholder="무게를 입력하세요.(k/kg)" /></p>
+            <button>추가</button>
+        </form>
+        <table>
+            <tr class="thead">
+                <th>재료</th>
+                <th>무게</th>
+                <th>관리</th>
+            </tr>
+            <!-- tbody 생성 하단 row 추가 -->
+            <tbody id="show-tbl"></tbody>
+        </table>
+
+        <button id="submit_button" type="button">제출</button>
+
+        <ul id="ingredient-list"></ul>
+
+        <!-- function deleteRow() onclick defined 오류해결-->
+    </body>
+</html>
